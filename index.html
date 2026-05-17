@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corelet — AI workflow tools, local-first</title>
+<meta name="description" content="Corelet runs agentlets — small AI-authored tools, sandboxed, reviewed in public, local-first.">
+
+<!-- OpenGraph / Twitter -->
+<meta property="og:title" content="Corelet — AI workflow tools, local-first">
+<meta property="og:description" content="Twenty-plus focused tools authored by AI agents. Sandboxed. Reviewed in public. Run only on your device.">
+<meta property="og:url" content="https://corelet.agentsan.app">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #fafaf9;
+    --fg: #18181b;
+    --muted: #71717a;
+    --line: #e4e4e7;
+    --card: #ffffff;
+    --accent: #ef6f5f;
+    --code-bg: #f4f4f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0b0c;
+      --fg: #f4f4f5;
+      --muted: #a1a1aa;
+      --line: #27272a;
+      --card: #18181b;
+      --code-bg: #1f1f23;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans", sans-serif;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 64px 24px 96px; }
+
+  .hero { text-align: center; padding: 24px 0 48px; }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 64px);
+    letter-spacing: -0.03em;
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+  .accent { color: var(--accent); }
+  .hero .tag {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: var(--muted);
+    margin: 0 0 36px;
+  }
+  .badges {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    margin: 12px 0 0;
+  }
+  .badge {
+    display: inline-block; padding: 4px 10px;
+    border: 1px solid var(--line); border-radius: 999px;
+    font-size: 12px; color: var(--muted);
+  }
+
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .cta a {
+    display: inline-flex; align-items: center;
+    padding: 10px 20px; border-radius: 8px; font-weight: 500;
+    text-decoration: none;
+    transition: opacity .15s, transform .05s;
+  }
+  .cta a:active { transform: translateY(1px); }
+  .cta .primary { background: var(--accent); color: white; }
+  .cta .primary:hover { opacity: .9; }
+  .cta .secondary {
+    background: var(--card); color: var(--fg);
+    border: 1px solid var(--line);
+  }
+  .cta .secondary:hover { background: var(--code-bg); }
+
+  section { margin-top: 56px; }
+  section h2 { font-size: 22px; margin: 0 0 16px; letter-spacing: -0.01em; }
+  section .lede { color: var(--muted); margin: 0 0 20px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .grid .item {
+    padding: 12px 14px; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+    font-size: 14px;
+  }
+  .grid .item b { font-weight: 600; }
+  .grid .item span { color: var(--muted); display: block; font-size: 12px; margin-top: 2px; }
+
+  pre {
+    background: var(--code-bg); padding: 14px 16px; border-radius: 8px;
+    overflow-x: auto; font-size: 13px;
+    border: 1px solid var(--line);
+  }
+  code {
+    background: var(--code-bg); padding: 2px 6px; border-radius: 4px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em;
+  }
+  pre code { background: transparent; padding: 0; }
+
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .pillars .pillar {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px;
+  }
+  .pillars .pillar h3 { margin: 0 0 6px; font-size: 16px; }
+  .pillars .pillar p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  footer {
+    margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 13px; text-align: center;
+  }
+  footer a { color: var(--muted); margin: 0 8px; }
+
+  hr { border: none; border-top: 1px solid var(--line); margin: 80px 0 48px; }
+
+  a { color: var(--accent); }
+  .section-zh { padding-top: 24px; }
+  .section-zh h2 { font-size: 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ───────── Hero ───────── -->
+
+<header class="hero">
+  <h1>Co<span class="accent">re</span>let</h1>
+  <p class="tag">AI workflow tools. Local-first. Reviewed in public.</p>
+  <div class="badges">
+    <span class="badge">macOS</span>
+    <span class="badge">iOS (coming)</span>
+    <span class="badge">Android (coming)</span>
+    <span class="badge">Web</span>
+  </div>
+  <div class="cta">
+    <a class="primary" href="https://registry.agentsan.app">Browse Catalog →</a>
+    <a class="secondary" href="https://github.com/agent-rt/corelet">View Source</a>
+  </div>
+</header>
+
+<!-- ───────── What it is ───────── -->
+
+<section>
+  <h2>What is Corelet?</h2>
+  <p>
+    Corelet is a single app that bundles dozens of small focused tools — what we call
+    <strong>agentlets</strong>. Each agentlet is a self-contained workflow, mostly authored by
+    AI agents and reviewed by humans in public GitHub PRs before being added to the catalog.
+  </p>
+  <p>
+    Everything runs locally. No accounts, no telemetry, no tracking.
+  </p>
+</section>
+
+<!-- ───────── Built-in agentlets ───────── -->
+
+<section>
+  <h2>Built-in agentlets</h2>
+  <p class="lede">Open Corelet, get to work immediately. Twenty-plus tools, no setup.</p>
+  <div class="grid">
+    <div class="item"><b>Timer</b><span>presets, focus</span></div>
+    <div class="item"><b>Calculator</b><span>iOS-style, keyboard</span></div>
+    <div class="item"><b>JSON Tools</b><span>format, minify, validate</span></div>
+    <div class="item"><b>HN Reader</b><span>likes, blocks</span></div>
+    <div class="item"><b>Reminders</b><span>capture, schedule</span></div>
+    <div class="item"><b>Tasks</b><span>kanban + list</span></div>
+    <div class="item"><b>Inbox</b><span>quick notes</span></div>
+    <div class="item"><b>Issues</b><span>lightweight tracking</span></div>
+    <div class="item"><b>Ledger</b><span>expense + income</span></div>
+    <div class="item"><b>Profile</b><span>local identity</span></div>
+    <div class="item"><b>Memory</b><span>knowledge notes</span></div>
+    <div class="item"><b>JP Cards</b><span>Japanese vocabulary</span></div>
+    <div class="item"><b>QR</b><span>encode / decode</span></div>
+    <div class="item"><b>FX</b><span>currency convert</span></div>
+    <div class="item"><b>Translate</b><span>local-LLM ready</span></div>
+    <div class="item"><b>Copywriter</b><span>content drafts</span></div>
+    <div class="item"><b>GitHub PRs</b><span>review tracker</span></div>
+    <div class="item"><b>Scheduler</b><span>cron jobs</span></div>
+    <div class="item"><b>...and more</b><span>at the catalog</span></div>
+  </div>
+</section>
+
+<!-- ───────── Trust pillars ───────── -->
+
+<section>
+  <h2>Why it's safe</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <h3>Sandboxed by construction</h3>
+      <p>Agentlets are declarative IR + optional QuickJS scripts. No native code. No DOM. No <code>fetch</code> by default.</p>
+    </div>
+    <div class="pillar">
+      <h3>Permissions you can see</h3>
+      <p>Every install shows declared permissions. Network access requires a URL allowlist visible to you.</p>
+    </div>
+    <div class="pillar">
+      <h3>Reviewed in public</h3>
+      <p>Every agentlet enters the catalog via GitHub PR with author identity, source diff, and reviewer signature.</p>
+    </div>
+    <div class="pillar">
+      <h3>Local-first</h3>
+      <p>Your data lives in a local SQLite database. No cloud, no analytics, no telemetry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Try it ───────── -->
+
+<section>
+  <h2>Try it now</h2>
+  <p class="lede">Build from source (mac):</p>
+  <pre><code>git clone https://github.com/agent-rt/corelet
+cd corelet
+just build-app && open zig-out/Corelet.app</code></pre>
+  <p class="lede" style="margin-top:16px;">
+    App Store and Play Store listings coming soon. For now,
+    <a href="https://github.com/agent-rt/corelet/releases">downloads on GitHub</a>.
+  </p>
+</section>
+
+<hr id="zh">
+
+<!-- ───────── 中文 ───────── -->
+
+<div class="section-zh" lang="zh-CN">
+
+<section style="margin-top:0;">
+  <h2>Corelet 是什么</h2>
+  <p>
+    Corelet 是一个把几十个小工具（<strong>agentlet</strong>）打包成一个应用的工作流套件。
+    每个 agentlet 是一个自包含的工作流，大多由 AI 编写，经 GitHub PR 公开审核后加入 catalog。
+  </p>
+  <p>所有 agentlet 在本地运行。无账号、无埋点、无跟踪。</p>
+</section>
+
+<section>
+  <h2>开箱即用的 agentlet</h2>
+  <p class="lede">打开就用，20+ 工具无需配置。</p>
+  <div class="grid">
+    <div class="item"><b>计时器</b><span>预设 / 专注</span></div>
+    <div class="item"><b>计算器</b><span>iOS 风格</span></div>
+    <div class="item"><b>JSON 工具</b><span>格式化 / 校验</span></div>
+    <div class="item"><b>HN 阅读器</b><span>点赞 / 屏蔽</span></div>
+    <div class="item"><b>提醒事项</b><span>快速记录</span></div>
+    <div class="item"><b>任务</b><span>看板 + 列表</span></div>
+    <div class="item"><b>收件箱</b><span>速记</span></div>
+    <div class="item"><b>Issues</b><span>轻量跟踪</span></div>
+    <div class="item"><b>记账</b><span>收支</span></div>
+    <div class="item"><b>个人资料</b><span>本地身份</span></div>
+    <div class="item"><b>记忆库</b><span>知识笔记</span></div>
+    <div class="item"><b>日语单词</b><span>词卡复习</span></div>
+    <div class="item"><b>QR</b><span>编码 / 解码</span></div>
+    <div class="item"><b>FX</b><span>汇率换算</span></div>
+    <div class="item"><b>翻译</b><span>本地 LLM 就绪</span></div>
+    <div class="item"><b>文案</b><span>内容草稿</span></div>
+    <div class="item"><b>GitHub PR</b><span>review 跟踪</span></div>
+    <div class="item"><b>调度器</b><span>cron 任务</span></div>
+    <div class="item"><b>更多……</b><span>见 catalog</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>为什么安全</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <h3>沙盒架构</h3>
+      <p>agentlet 是声明式 IR + 可选 QuickJS。无原生代码、无 DOM、默认无 <code>fetch</code>。</p>
+    </div>
+    <div class="pillar">
+      <h3>权限可视</h3>
+      <p>每次安装显示所需权限。网络访问要 URL allowlist，安装前可见。</p>
+    </div>
+    <div class="pillar">
+      <h3>公开审核</h3>
+      <p>每个 agentlet 都经 GitHub PR 审核 —— 作者身份、源码 diff、reviewer 签名公开可查。</p>
+    </div>
+    <div class="pillar">
+      <h3>本地优先</h3>
+      <p>数据存本地 SQLite。无云端、无分析、无埋点。</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>
+    <a href="https://registry.agentsan.app">Catalog</a> ·
+    <a href="https://registry.agentsan.app/privacy/">Privacy</a> ·
+    <a href="https://github.com/agent-rt/corelet">Host source</a> ·
+    <a href="https://github.com/agent-rt/corelet-registry">Registry</a> ·
+    <a href="https://github.com/agent-rt/corelet-apps">Built-in agentlets</a>
+  </p>
+  <p>© 2026 agentsan.app · <a href="mailto:support@agentsan.app">support@agentsan.app</a></p>
+</footer>
+
+</div>
+</body>
+</html>
