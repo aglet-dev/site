@@ -1,0 +1,119 @@
+---
+import Base from "../layouts/Base.astro";
+import { strings, localeName, localePath, LOCALES, DMG, BREW, CATALOG, REPO, FEEDBACK, AGENT_PROMPT, type Locale } from "../i18n";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = strings[locale];
+---
+
+<Base locale={locale} title={t.title} description={t.description}>
+  <!-- 语言切换器:只跳到对应 locale 的独立页面,不在本页堆叠多语言 -->
+  <nav class="langbar" aria-label="Language">
+    {LOCALES.map((l) => (
+      l === locale
+        ? <span class="lang active" aria-current="page">{localeName[l]}</span>
+        : <a class="lang" href={localePath[l]}>{localeName[l]}</a>
+    ))}
+  </nav>
+
+  <header class="hero">
+    <h1>A<span class="accent">gle</span>t</h1>
+    <p class="tag">{t.tag}</p>
+    <div class="badges">
+      {t.badges.map((b) => <span class="badge">{b}</span>)}
+    </div>
+    <div class="cta">
+      <a class="primary" href={DMG}>{t.cta.download}</a>
+      <a class="secondary" href={CATALOG}>{t.cta.catalog}</a>
+      <a class="secondary" href={REPO}>{t.cta.source}</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>{t.what.title}</h2>
+    <p set:html={t.what.p1} />
+    <p>{t.what.p2}</p>
+  </section>
+
+  <section>
+    <h2>{t.aglets.title}</h2>
+    <p class="lede">{t.aglets.lede}</p>
+    <div class="grid">
+      {t.aglets.items.map(([name, sub]) => (
+        <div class="item"><b>{name}</b><span>{sub}</span></div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2>{t.why.title}</h2>
+    <div class="pillars">
+      {t.why.pillars.map((p) => (
+        <div class="pillar"><h3>{p.h}</h3><p set:html={p.p} /></div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2>{t.quickstart.title}</h2>
+    <p class="lede">{t.quickstart.agentLede}</p>
+    <div class="prompt">
+      <button class="copy-btn" data-copy data-label={t.quickstart.copy} data-done={t.quickstart.copied}>{t.quickstart.copy}</button>
+      <pre><code id="agent-prompt">{AGENT_PROMPT}</code></pre>
+    </div>
+
+    <h3 class="sub">{t.quickstart.manualTitle}</h3>
+    <p class="lede">{t.quickstart.manualLede}</p>
+    <pre><code>{t.quickstart.c1}
+aglet new hello
+
+{t.quickstart.c2}
+aglet validate hello
+
+{t.quickstart.c3}
+aglet dev hello</code></pre>
+    <p class="lede" style="margin-top:16px;" set:html={t.quickstart.docsNote} />
+  </section>
+
+  <section>
+    <h2>{t.get.title}</h2>
+    <p class="lede">{t.get.lede}</p>
+    <pre><code>{t.get.appComment}
+# {DMG}
+
+{t.get.cliComment}
+{BREW}</code></pre>
+    <p class="lede" style="margin-top:16px;" set:html={t.get.note} />
+  </section>
+
+  <footer>
+    <p>
+      <a href={CATALOG}>{t.footer.catalog}</a> ·
+      <a href="/privacy/">{t.footer.privacy}</a> ·
+      <a href={REPO}>{t.footer.host}</a> ·
+      <a href="https://github.com/aglet-dev/registry">{t.footer.registry}</a> ·
+      <a href="https://github.com/aglet-dev/apps">{t.footer.builtins}</a> ·
+      <a href={FEEDBACK}>{t.footer.feedback}</a>
+    </p>
+    <p>© 2026 aglet.dev · <a href="mailto:support@aglet.dev">support@aglet.dev</a></p>
+  </footer>
+
+  <script>
+    // 复制提示词到剪贴板,按钮文案短暂切到「已复制」再切回。
+    const btn = document.querySelector<HTMLButtonElement>("[data-copy]");
+    const src = document.getElementById("agent-prompt");
+    if (btn && src) {
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(src.textContent ?? "");
+          const done = btn.dataset.done ?? "Copied!";
+          const label = btn.dataset.label ?? "Copy";
+          btn.textContent = done;
+          btn.classList.add("ok");
+          setTimeout(() => { btn.textContent = label; btn.classList.remove("ok"); }, 1600);
+        } catch {}
+      });
+    }
+  </script>
+</Base>
