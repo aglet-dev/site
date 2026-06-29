@@ -62,8 +62,8 @@ type Strings = {
   description: string;
   tag: string;
   badges: string[];
-  cta: { download: string; catalog: string; source: string };
-  what: { title: string; p1: string; p2: string };
+  cta: { download: string; agent: string; catalog: string };
+  how: { title: string; steps: Pillar[] };
   aglets: { title: string; lede: string; items: [string, string][] };
   why: { title: string; pillars: Pillar[] };
   quickstart: {
@@ -90,16 +90,20 @@ type Strings = {
 
 export const strings: Record<Locale, Strings> = {
   en: {
-    title: "Aglet — build native-quality tools, no native code",
+    title: "Aglet — native tools your AI agent builds",
     description:
-      "Aglet is an agent-first platform for building small, native-quality tools without writing native code. Keep them for yourself, or share them in public.",
-    tag: "Build your own tools with AI — no native code. Use them, or share them.",
+      "Aglet turns what your AI coding agent writes into small, native-quality desktop tools — no native code, no account, all on your machine. Keep them private, or share them.",
+    tag: "Your AI agent writes it. Aglet renders it natively. You keep it — or share it.",
     badges: ["macOS", "iOS (coming)", "Android (coming)", "Web (coming)"],
-    cta: { download: "Download for macOS", catalog: "Browse Catalog →", source: "View Source" },
-    what: {
-      title: "What is Aglet?",
-      p1: "Aglet is an agent-first platform for building small, focused tools — <strong>aglets</strong>. You build them with AI: describe what you want, the agent writes it, and Aglet renders the result with native quality — SwiftUI on macOS, and on the web. No Swift, no Kotlin, no native code.",
-      p2: "Keep an aglet for yourself, or share it. Every public aglet joins the catalog through a human-reviewed GitHub pull request. Everything runs on your device — data in a local SQLite database, no account, no telemetry.",
+    cta: { download: "Download for macOS", agent: "Build with your agent ↓", catalog: "Browse the catalog →" },
+    how: {
+      title: "How it works",
+      steps: [
+        { h: "Describe it", p: "Tell your AI coding agent — Claude Code or Codex — what tool you want." },
+        { h: "The agent writes it", p: "It generates the declarative UI plus optional sandboxed JavaScript. No Swift, no Kotlin, no native code." },
+        { h: "Aglet renders it natively", p: "SwiftUI on macOS, the web elsewhere — it looks and feels like a real app, not a web page." },
+        { h: "Keep it, or share it", p: "Run it privately on your machine, or publish it to the public catalog through a human-reviewed pull request." },
+      ],
     },
     aglets: {
       title: "Built with Aglet",
@@ -144,15 +148,19 @@ export const strings: Record<Locale, Strings> = {
   },
 
   zh: {
-    title: "Aglet —— 无需原生代码,构建原生质感的小工具",
-    description: "Aglet 是 Agent 优先的平台:不写原生代码,即可构建小而专注、原生质感的工具。自己用,也能分享出去。",
-    tag: "用 AI 构建属于你自己的工具,无需原生代码。自己用,也能分享。",
+    title: "Aglet —— 你的 AI agent 造的原生小工具",
+    description: "Aglet 把你的 AI coding agent 写出来的东西,变成小而原生质感的桌面小工具 —— 不写原生代码、无账号、全在你本机。自己用,也能分享。",
+    tag: "你的 AI agent 写,Aglet 原生渲染,归你 —— 也能分享。",
     badges: ["macOS", "iOS(即将)", "Android(即将)", "Web(即将)"],
-    cta: { download: "下载 macOS 版", catalog: "浏览 Catalog →", source: "查看源码" },
-    what: {
-      title: "Aglet 是什么",
-      p1: "Aglet 是一个 Agent 优先的平台,用来构建小而专注的工具 —— <strong>小工具</strong>。你用 AI 来构建:说出你想要什么,agent 把它写出来,Aglet 再把结果渲染成原生质感的界面 —— macOS 上是 SwiftUI,网页上也一样。不写 Swift、不写 Kotlin、不碰原生代码。",
-      p2: "小工具可以只给自己用,也能分享出去。每个公开的小工具都经人类在 GitHub PR 审核后进入 catalog。一切都在你的设备上运行 —— 数据存本地 SQLite,无账号、无埋点。",
+    cta: { download: "下载 macOS 版", agent: "用你的 agent 构建 ↓", catalog: "浏览 catalog →" },
+    how: {
+      title: "怎么用",
+      steps: [
+        { h: "描述它", p: "把你想要的小工具告诉你的 AI coding agent —— Claude Code 或 Codex。" },
+        { h: "agent 写出来", p: "它生成声明式 UI 加可选的沙盒 JavaScript。不写 Swift、不写 Kotlin、不碰原生代码。" },
+        { h: "Aglet 原生渲染", p: "macOS 上是 SwiftUI,其它平台走网页 —— 看着、用着像真应用,不是网页。" },
+        { h: "自用,或分享", p: "在本机私下运行,或经人类审核的 PR 发布到公开 catalog。" },
+      ],
     },
     aglets: {
       title: "用 Aglet 构建的",
@@ -197,15 +205,19 @@ export const strings: Record<Locale, Strings> = {
   },
 
   ja: {
-    title: "Aglet —— ネイティブコードなしで、ネイティブ品質のツールを作る",
-    description: "Aglet はエージェントファーストのプラットフォーム。ネイティブコードを書かずに、小さくネイティブ品質のツールを作れる。自分で使うのも、共有するのも自由。",
-    tag: "AI で自分のツールを作る —— ネイティブコード不要。自分用にも、共有にも。",
+    title: "Aglet —— AI エージェントが作る、ネイティブ品質のミニアプリ",
+    description: "Aglet は、あなたの AI コーディングエージェントが書いたものを、小さくネイティブ品質のデスクトップミニアプリに変えます —— ネイティブコード不要、アカウント不要、すべて自分のマシン上。自分用にも、共有にも。",
+    tag: "AI エージェントが書き、Aglet がネイティブに描画。あなたのもの —— 共有も自由。",
     badges: ["macOS", "iOS(近日)", "Android(近日)", "Web(近日)"],
-    cta: { download: "macOS 版をダウンロード", catalog: "カタログを見る →", source: "ソースを見る" },
-    what: {
-      title: "Aglet とは",
-      p1: "Aglet は、小さく焦点を絞ったツール(<strong>ミニアプリ</strong>)を作るためのエージェントファーストのプラットフォームです。AI で作ります —— 欲しいものを伝えれば、エージェントが書き、Aglet がその結果をネイティブ品質で描画します —— macOS では SwiftUI、Web でも同様。Swift も Kotlin も、ネイティブコードも不要。",
-      p2: "ミニアプリは自分専用にも、共有もできます。公開ミニアプリは GitHub PR で人間のレビューを経てカタログに加わります。すべてあなたのデバイス上で動作 —— データはローカル SQLite、アカウント不要、テレメトリなし。",
+    cta: { download: "macOS 版をダウンロード", agent: "エージェントで作る ↓", catalog: "カタログを見る →" },
+    how: {
+      title: "使い方",
+      steps: [
+        { h: "伝える", p: "欲しいミニアプリを、AI コーディングエージェント(Claude Code または Codex)に伝える。" },
+        { h: "エージェントが書く", p: "宣言的 UI と任意のサンドボックス JavaScript を生成。Swift も Kotlin も、ネイティブコードも不要。" },
+        { h: "Aglet がネイティブ描画", p: "macOS では SwiftUI、他は Web —— 見た目も操作感も本物のアプリ。Web ページではない。" },
+        { h: "自分用、または共有", p: "自分のマシンで非公開で動かすか、人間のレビューを経た PR で公開カタログへ。" },
+      ],
     },
     aglets: {
       title: "Aglet で作られたもの",

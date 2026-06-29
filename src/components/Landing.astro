@@ -25,15 +25,18 @@ const t = strings[locale];
     </div>
     <div class="cta">
       <a class="primary" href={DMG}>{t.cta.download}</a>
+      <a class="secondary" href="#quickstart">{t.cta.agent}</a>
       <a class="secondary" href={CATALOG}>{t.cta.catalog}</a>
-      <a class="secondary" href={REPO}>{t.cta.source}</a>
     </div>
   </header>
 
   <section>
-    <h2>{t.what.title}</h2>
-    <p set:html={t.what.p1} />
-    <p>{t.what.p2}</p>
+    <h2>{t.how.title}</h2>
+    <div class="pillars">
+      {t.how.steps.map((s, i) => (
+        <div class="pillar"><h3>{i + 1}. {s.h}</h3><p set:html={s.p} /></div>
+      ))}
+    </div>
   </section>
 
   <section>
@@ -55,7 +58,7 @@ const t = strings[locale];
     </div>
   </section>
 
-  <section>
+  <section id="quickstart">
     <h2>{t.quickstart.title}</h2>
     <p class="lede">{t.quickstart.agentLede}</p>
     <div class="prompt">
