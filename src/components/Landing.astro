@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { strings, localeName, localePath, LOCALES, DMG, BREW, CATALOG, REPO, FEEDBACK, AGENT_PROMPT, type Locale } from "../i18n";
+import { strings, localeName, localePath, LOCALES, DMG, BREW, CATALOG, FEEDBACK, AGENT_PROMPT, type Locale } from "../i18n";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -94,7 +94,6 @@ aglet dev hello</code></pre>
     <p>
       <a href={CATALOG}>{t.footer.catalog}</a> ·
       <a href="/privacy/">{t.footer.privacy}</a> ·
-      <a href={REPO}>{t.footer.host}</a> ·
       <a href="https://github.com/aglet-dev/registry">{t.footer.registry}</a> ·
       <a href="https://github.com/aglet-dev/apps">{t.footer.builtins}</a> ·
       <a href={FEEDBACK}>{t.footer.feedback}</a>

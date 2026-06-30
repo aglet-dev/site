@@ -29,7 +29,6 @@ export const htmlLang: Record<Locale, string> = {
 
 export const DMG = "https://cdn.aglet.dev/dist/Aglet.dmg";
 export const BREW = "brew install aglet-dev/tap/aglet";
-export const REPO = "https://github.com/aglet-dev/aglet";
 export const CATALOG = "https://registry.aglet.dev";
 export const FEEDBACK = "https://github.com/aglet-dev/feedback";
 
@@ -85,7 +84,7 @@ type Strings = {
     cliComment: string;
     note: string;
   };
-  footer: { catalog: string; privacy: string; host: string; registry: string; builtins: string; feedback: string };
+  footer: { catalog: string; privacy: string; registry: string; builtins: string; feedback: string };
 };
 
 export const strings: Record<Locale, Strings> = {
@@ -135,16 +134,16 @@ export const strings: Record<Locale, Strings> = {
       c1: "# Scaffold a new aglet (aglet.json + ui.tsx + locales)",
       c2: "# Edit ui.tsx, then validate offline",
       c3: "# Run it live in the app, with hot reload",
-      docsNote: `Full authoring reference: run <code>aglet agents-md</code>, or read the <a href="${REPO}">source</a>.`,
+      docsNote: `Full authoring reference: run <code>aglet agents-md</code>.`,
     },
     get: {
       title: "Get it",
       lede: "Run aglets with the app, or build your own with the CLI:",
       appComment: "# App — download the signed .dmg, drag to Applications:",
       cliComment: "# CLI — author, install and test your own aglets:",
-      note: `The app self-updates via Sparkle. iOS / Android coming. Build from source: <a href="${REPO}">github.com/aglet-dev/aglet</a>.`,
+      note: `The app self-updates via Sparkle. iOS / Android coming.`,
     },
-    footer: { catalog: "Catalog", privacy: "Privacy", host: "Host source", registry: "Registry", builtins: "Built-in aglets", feedback: "Feedback" },
+    footer: { catalog: "Catalog", privacy: "Privacy", registry: "Registry", builtins: "Built-in aglets", feedback: "Feedback" },
   },
 
   zh: {
@@ -192,16 +191,16 @@ export const strings: Record<Locale, Strings> = {
       c1: "# 脚手架生成一个小工具(aglet.json + ui.tsx + locales)",
       c2: "# 改 ui.tsx,然后离线校验",
       c3: "# 在应用里实时运行,热重载",
-      docsNote: `完整编写参考:运行 <code>aglet agents-md</code>,或阅读<a href="${REPO}">源码</a>。`,
+      docsNote: `完整编写参考:运行 <code>aglet agents-md</code>。`,
     },
     get: {
       title: "获取",
       lede: "用应用运行小工具,或用 CLI 构建你自己的:",
       appComment: "# 应用 —— 下载已签名公证的 .dmg,拖入「应用程序」:",
       cliComment: "# CLI —— 编写、安装、测试你自己的小工具:",
-      note: `应用经 Sparkle 自动更新。iOS / Android 即将支持。从源码构建:<a href="${REPO}">github.com/aglet-dev/aglet</a>。`,
+      note: `应用经 Sparkle 自动更新。iOS / Android 即将支持。`,
     },
-    footer: { catalog: "Catalog", privacy: "隐私", host: "宿主源码", registry: "Registry", builtins: "内置小工具", feedback: "反馈" },
+    footer: { catalog: "Catalog", privacy: "隐私", registry: "Registry", builtins: "内置小工具", feedback: "反馈" },
   },
 
   ja: {
@@ -249,15 +248,15 @@ export const strings: Record<Locale, Strings> = {
       c1: "# 新しいミニアプリを生成(aglet.json + ui.tsx + locales)",
       c2: "# ui.tsx を編集し、オフラインで検証",
       c3: "# アプリ内でライブ実行、ホットリロード",
-      docsNote: `完全な作成リファレンス:<code>aglet agents-md</code> を実行、または<a href="${REPO}">ソース</a>を参照。`,
+      docsNote: `完全な作成リファレンス:<code>aglet agents-md</code> を実行。`,
     },
     get: {
       title: "入手",
       lede: "アプリでミニアプリを実行、または CLI で自作:",
       appComment: "# アプリ —— 署名・公証済みの .dmg をダウンロードし「アプリケーション」へ:",
       cliComment: "# CLI —— 自分のミニアプリを作成・インストール・テスト:",
-      note: `アプリは Sparkle で自動更新。iOS / Android は近日対応。ソースからビルド:<a href="${REPO}">github.com/aglet-dev/aglet</a>。`,
+      note: `アプリは Sparkle で自動更新。iOS / Android は近日対応。`,
     },
-    footer: { catalog: "カタログ", privacy: "プライバシー", host: "ホストソース", registry: "Registry", builtins: "内蔵ミニアプリ", feedback: "フィードバック" },
+    footer: { catalog: "カタログ", privacy: "プライバシー", registry: "Registry", builtins: "内蔵ミニアプリ", feedback: "フィードバック" },
   },
 };
